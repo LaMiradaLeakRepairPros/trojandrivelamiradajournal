@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trojan Drive La Mirada Journal | Acoustic Subfloor Hydro-Acoustics & Infrastructure Engineering</title>
+    <meta name="description" content="Technical journal covering subsurface acoustic diagnostic methods, pressure wave spectrum analysis, and non-destructive plumbing infrastructure engineering along Trojan Drive in La Mirada.">
+    
+    <!-- Google Fonts: Technical Mono + Neomorphic Sans + Architectural Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+           THEME: "CYBER-LIME & DEEP GRAPHITE SPECTROMETRY"
+           Aesthetic: Ultra-High-Tech Hydro-Acoustic Monitoring Portal
+           Color Palette: Acid Emerald (#10B981), Electric Neon Lime (#84CC16), Subsurface Deep Teal (#0F292F), Obsidian Basalt (#07090E), Frost Glass White (#F8FAFC)
+        */
+        :root {
+            --bg-obsidian: #07090E;
+            --bg-card: #0F131C;
+            --bg-card-alt: #161C28;
+            --acid-lime: #84CC16;
+            --emerald-glow: #10B981;
+            --teal-subsurface: #14B8A6;
+            --lime-glow-rgba: rgba(132, 204, 22, 0.18);
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --border-tech: rgba(132, 204, 22, 0.25);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --font-display: 'Cinzel Decorative', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 85% 10%, rgba(132, 204, 22, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 15% 60%, rgba(16, 185, 129, 0.06) 0%, transparent 45%),
+                linear-gradient(180deg, #07090E 0%, #030406 100%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .mono-code {
+            font-family: var(--font-mono);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        /* CUSTOM ASYMMETRIC HUD DIVIDER */
+        .hud-line-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--acid-lime) 30%, var(--emerald-glow) 70%, transparent 100%);
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .hud-line-divider::after {
+            content: '[ ACOUSTIC FREQUENCY AUDIT MATRIX // SECTOR 90638 ]';
+            position: absolute;
+            top: -10px;
+            left: 10%;
+            background: var(--bg-obsidian);
+            color: var(--acid-lime);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            padding: 0 16px;
+            border: 1px solid var(--border-tech);
+            border-radius: 2px;
+        }
+
+        /* BUTTONS & BADGES */
+        .badge-hud {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(132, 204, 22, 0.1);
+            border: 1px solid var(--acid-lime);
+            color: var(--acid-lime);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+
+        .badge-hud::before {
+            content: '●';
+            color: var(--emerald-glow);
+            font-size: 0.8rem;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .btn-lime {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, var(--acid-lime), var(--emerald-glow));
+            color: var(--bg-obsidian);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            box-shadow: 0 8px 30px var(--lime-glow-rgba);
+            transition: all 0.3s ease;
+        }
+
+        .btn-lime:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(132, 204, 22, 0.4);
+            filter: brightness(1.15);
+        }
+
+        .btn-glass-hud {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid var(--border-glass);
+            border-radius: 3px;
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-glass-hud:hover {
+            border-color: var(--acid-lime);
+            color: var(--acid-lime);
+            background: rgba(132, 204, 22, 0.05);
+        }
+
+        /* 1. HEADER & NAVBAR */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 9, 14, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-symbol {
+            width: 44px;
+            height: 44px;
+            background: rgba(132, 204, 22, 0.1);
+            border: 1px solid var(--acid-lime);
+            display: grid;
+            place-items: center;
+            color: var(--acid-lime);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+        }
+
+        .brand-text h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .brand-text span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--acid-lime);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--acid-lime);
+        }
+
+        /* 2. DYNAMIC HERO SECTION (Bespoke Asymmetric Layout) */
+        .hero-layout {
+            padding-top: 170px;
+            padding-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-glass-box {
+            background: linear-gradient(145deg, rgba(15, 19, 28, 0.9), rgba(10, 13, 20, 0.95));
+            border: 1px solid var(--border-tech);
+            padding: 60px;
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-glass-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--acid-lime);
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.15;
+        }
+
+        .hero-title span {
+            color: var(--acid-lime);
+            background: linear-gradient(135deg, var(--acid-lime), var(--teal-subsurface));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 92%;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-tech);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(1.1) contrast(1.1);
+        }
+
+        .hero-hud-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(7, 9, 14, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            padding: 20px;
+            border-radius: 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 3. QUICK STATS GRID */
+        .stats-banner {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 50px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-glass);
+            padding: 28px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 2px;
+            background: var(--acid-lime);
+        }
+
+        .stat-val {
+            font-family: var(--font-mono);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--acid-lime);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: var(--font-mono);
+        }
+
+        /* 4. PLATFORM OVERVIEW */
+        .overview-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .overview-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 48px;
+            border-radius: 4px;
+        }
+
+        /* 5. MAIN FEATURED ARTICLE SECTION */
+        .article-container-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-tech);
+            padding: 90px 80px;
+            max-width: 1140px;
+            margin: 0 auto;
+            border-radius: 6px;
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .article-container-box::before {
+            content: 'TROJAN DRIVE INFRASTRUCTURE JOURNAL // HYDRO-ACOUSTICS VOL. 24';
+            position: absolute;
+            top: -14px;
+            left: 60px;
+            background: var(--acid-lime);
+            color: var(--bg-obsidian);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 16px;
+            letter-spacing: 2px;
+        }
+
+        .article-meta {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--teal-subsurface);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .article-heading {
+            font-size: 2.8rem;
+            margin-bottom: 36px;
+            line-height: 1.25;
+            color: var(--text-main);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.95;
+            color: #CBD5E1;
+        }
+
+        .article-content p {
+            margin-bottom: 32px;
+        }
+
+        .article-content h3 {
+            font-size: 1.75rem;
+            margin: 48px 0 24px 0;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 12px;
+        }
+
+        .article-quote {
+            background: rgba(132, 204, 22, 0.05);
+            border-left: 4px solid var(--acid-lime);
+            padding: 30px;
+            margin: 40px 0;
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--acid-lime);
+            line-height: 1.6;
+        }
+
+        .primary-seo-link {
+            color: var(--acid-lime);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .primary-seo-link:hover {
+            color: var(--emerald-glow);
+        }
+
+        .authority-link {
+            color: var(--teal-subsurface);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* 6. CORE FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 40px 32px;
+            border-radius: 4px;
+            transition: all 0.35s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            border-color: var(--acid-lime);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(132, 204, 22, 0.08);
+        }
+
+        .feature-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--acid-lime);
+            margin-bottom: 16px;
+        }
+
+        /* 7. VISUAL BREAKDOWN GUIDE */
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .workflow-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 36px 28px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .workflow-step.active {
+            border-color: var(--border-tech);
+            background: var(--bg-card-alt);
+        }
+
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--border-glass);
+        }
+
+        .workflow-step.active::before {
+            background: linear-gradient(90deg, var(--acid-lime), var(--emerald-glow));
+        }
+
+        /* 8. COMPARISON TABLE */
+        .table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .matrix-table th {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 24px 28px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--acid-lime);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .matrix-table td {
+            padding: 22px 28px;
+            border-bottom: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .matrix-table tr:hover td {
+            background: rgba(132, 204, 22, 0.02);
+            color: var(--text-main);
+        }
+
+        /* 9. INTERACTIVE FAQ SECTION */
+        .faq-accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            margin-bottom: 18px;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-btn {
+            width: 100%;
+            padding: 26px 32px;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-symbol {
+            font-family: var(--font-mono);
+            color: var(--acid-lime);
+            font-size: 1.3rem;
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0 32px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        .faq-card.open {
+            border-color: var(--border-tech);
+            background: var(--bg-card-alt);
+        }
+
+        .faq-card.open .faq-body {
+            max-height: 250px;
+            padding-bottom: 28px;
+        }
+
+        /* 10. EXPERT TIPS */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .tip-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 38px 28px;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .tip-num {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--acid-lime);
+        }
+
+        /* 11. USER FEEDBACK SHOWCASE */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feedback-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 36px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .feedback-text {
+            font-size: 0.98rem;
+            font-style: italic;
+            margin-bottom: 28px;
+            color: var(--text-main);
+        }
+
+        .feedback-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .feedback-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--acid-lime);
+        }
+
+        /* 12. HIGHLIGHTED CALLOUT BANNER */
+        .callout-banner-box {
+            background: linear-gradient(135deg, var(--bg-card-alt), #111722);
+            border: 1px solid var(--border-tech);
+            padding: 70px 60px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        /* 13. CONSULTATION FORM SECTION */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .form-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            padding: 48px;
+            border-radius: 4px;
+        }
+
+        .input-wrap {
+            margin-bottom: 24px;
+        }
+
+        .input-wrap label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--acid-lime);
+            margin-bottom: 8px;
+        }
+
+        .input-ctrl {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-obsidian);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .input-ctrl:focus {
+            outline: none;
+            border-color: var(--acid-lime);
+            box-shadow: 0 0 15px var(--lime-glow-rgba);
+        }
+
+        /* 14. FOOTER */
+        .site-footer {
+            background: #030406;
+            border-top: 1px solid var(--border-glass);
+            padding: 90px 0 40px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 70px;
+        }
+
+        .footer-heading {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--acid-lime);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--acid-lime);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-glass);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            .hero-layout, .overview-split, .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            .features-grid, .tips-grid, .feedback-grid, .workflow-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            .article-container-box {
+                padding: 40px 24px;
+            }
+            .article-heading {
+                font-size: 1.9rem;
+            }
+            .features-grid, .tips-grid, .feedback-grid, .stats-grid, .footer-grid, .workflow-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. MODERN STICKY NAVIGATION BAR -->
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <div class="logo-symbol">TJ</div>
+                    <div class="brand-text">
+                        <h2>TROJAN DRIVE JOURNAL</h2>
+                        <span>Hydro-Acoustic Portal</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#article">Research Report</a></li>
+                    <li><a href="#features">Acoustic Specs</a></li>
+                    <li><a href="#workflow">Diagnostic Steps</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <a href="#contact" class="btn-lime" style="padding: 12px 22px; font-size: 0.75rem;">Request Leak Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. DYNAMIC HERO SECTION -->
+    <section class="section-padding" style="padding-top: 130px;">
+        <div class="container">
+            <div class="hero-layout">
+                <div class="hero-glass-box">
+                    <div class="badge-hud">TROJAN DRIVE CORRIDOR // LA MIRADA</div>
+                    <h1 class="hero-title">Acoustic Precision for <span>High-Pressure Pipes</span></h1>
+                    <p class="hero-subtitle">Exploring advanced sonic wave amplification, ground microphonic spectral analysis, and zero-destruction plumbing diagnostics across subterranean concrete networks.</p>
+                    <div style="display: flex; gap: 18px; flex-wrap: wrap;">
+                        <a href="#article" class="btn-lime">Read Technical Study</a>
+                        <a href="#features" class="btn-glass-hud">View Frequency Specs</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="hero-image-frame">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Engineers Inspecting High Pressure Pipe Infrastructure">
+                        <div class="hero-hud-overlay">
+                            <div>
+                                <span class="mono-code" style="color: var(--acid-lime); font-size: 0.75rem; display: block;">TARGET FREQUENCY: 200 Hz - 800 Hz</span>
+                                <span class="mono-code" style="color: var(--text-muted); font-size: 0.7rem;">ZONE: TROJAN DR / SLAB DEPTH 4.5"</span>
+                            </div>
+                            <div class="mono-code" style="color: var(--emerald-glow); font-size: 0.8rem; font-weight: 700;">ACTIVE LOG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hud-line-divider"></div>
+
+    <!-- 3. QUICK STATS & ACHIEVEMENTS GRID -->
+    <div class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val">&plusmn;0.5"</div>
+                    <div class="stat-label">Subfloor Point Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">100%</div>
+                    <div class="stat-label">Non-Destructive Scanning</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">60dB</div>
+                    <div class="stat-label">Ambient Noise Cancellation</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">0%</div>
+                    <div class="stat-label">Unnecessary Flooring Damage</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PLATFORM OVERVIEW / EDITORIAL MISSION -->
+    <section class="section-padding" id="overview">
+        <div class="container">
+            <div class="overview-split">
+                <div>
+                    <div class="badge-hud">Journal Mission</div>
+                    <h2 style="font-size: 2.6rem; margin-bottom: 20px;">Subterranean Sound <span>Engineering</span></h2>
+                    <p style="color: var(--text-muted); font-size: 1.05rem;">The Trojan Drive La Mirada Journal serves as a specialized repository for hydro-acoustic engineering and non-invasive infrastructure diagnostics. Our ongoing research investigates how high-frequency ground acoustic analysis protects residential foundations from catastrophic pressurized pipe failures.</p>
+                </div>
+                <div class="overview-card">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--acid-lime);">The Challenge of Trojan Drive Subfloor Leaks</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Properties along Trojan Drive feature heavy slab-on-grade concrete foundations built over dense soil matrices. When high-pressure copper or PEX water lines fail beneath these slabs, traditional demolition methods destroy extensive tile and hardwood before locating the leak. Acoustic diagnostics eliminate blind digging by listening directly to sound vibrations transferred through the floor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hud-line-divider"></div>
+
+    <!-- 5. MAIN FEATURED ARTICLE SECTION -->
+    <section class="section-padding" id="article">
+        <div class="container">
+            <article class="article-container-box">
+                <span class="article-meta">GEOTECHNICAL HYDRO-ACOUSTIC REPORT // LA MIRADA WATER INFRASTRUCTURE</span>
+                
+                <h1 class="article-heading">Acoustic Diagnostic Methods for High-Pressure Pipe Breaks on Trojan Drive</h1>
+
+                <div class="article-content">
+                    <p>Escaping pressurized water beneath concrete surfaces creates distinct acoustic sound frequencies that ground microphones can detect with extreme accuracy. Along Trojan Drive in La Mirada, residential water infrastructure operates under substantial municipal pressure, often exceeding 65 to 80 pounds per square inch (PSI). When high-pressure copper water mains or subfloor distribution lines experience pinhole corrosion, stress fractures, or joint fitting failures, the escaping water turbulence generates localized acoustic wave signatures. These acoustic waves propagate outward through compacted soil beds and dense Portland cement slab matrices, producing distinct vibrational frequencies in the range of 200 Hertz to 800 Hertz that can be isolated using specialized hydro-acoustic sensors.</p>
+
+                    <p>Technicians listening through slab floors and tile surfaces use frequency amplifiers to pinpoint subterranean pipe breaches within inches. Modern acoustic leak detection systems combine ultra-sensitive piezoelectric ground microphones with multi-band digital signal processors (DSP). By placing high-gain contact microphones systematically across floor grids, operators filter out low-frequency ambient environmental noises—such as street traffic along nearby residential thoroughfares or indoor HVAC airflow—and isolate the sharp, high-pitched hiss produced by pressurized water escaping from a micro-fracture under high velocity.</p>
+
+                    <div class="article-quote">
+                        "Hydro-acoustic spectral filtering converts subterranean fluid friction into visible audio waveforms, allowing technicians to locate subfloor pipe breaches within fractions of an inch without touching a sledgehammer."
+                    </div>
+
+                    <h3>Frequency Spectrum Analysis Across Concrete &amp; Tile Substrates</h3>
+                    <p>The acoustic transmission characteristics of water leaks vary depending on the structural composition of the flooring. Solid concrete slabs and ceramic tile act as excellent conductors for high-frequency acoustic waves, transmitting crisp, defined sound peaks directly to the surface sensor. Conversely, carpet padding or floating laminate underlayment dampens acoustic propagation, requiring technicians to utilize direct-contact ground probes inserted through strategic access points or rely on dual-channel acoustic correlators that measure sound speed delay between two fixed pipe valves.</p>
+
+                    <p>Acoustic tracing eliminates blind floor cutting, protecting expensive finished flooring while directing repair crews straight to the break. In traditional plumbing diagnostics, locating a subterranean slab leak frequently involved exploratory jackhammering across multiple rooms, leaving home interiors covered in concrete dust and causing thousands of dollars in cosmetic structural damage. Modern hydro-acoustic mapping isolates the exact breach coordinates before any physical intervention occurs, ensuring that concrete penetration is strictly confined to a small, localized repair zone directly above the point of failure.</p>
+
+                    <p>Homeowners dealing with hidden plumbing noise can utilize <a href="https://lamiradaleakrepairpros.com/services/acoustic-leak-detection-repair" class="primary-seo-link" target="_blank" rel="noopener">acoustic leak detection La Mirada</a> to locate underground leaks. Engaging experienced hydro-acoustic specialists provides property owners with verifiable diagnostic data, confirming the precise location and severity of subfloor line failures prior to initiating targeted pipe restoration or spot repair operations.</p>
+
+                    <p>Non-invasive acoustic testing preserves floor surfaces while reducing overall structural repair costs. By preventing widespread demolition of expensive hardwood, Italian porcelain, or custom stone flooring, property owners drastically reduce time and financial outlay associated with post-repair home restoration. For deeper technical standards regarding residential water pressure management and municipal infrastructure compliance, property owners can refer to published resources by the <a href="https://www.awwa.org/" class="authority-link" target="_blank" rel="noopener">American Water Works Association (AWWA)</a> or explore plumbing safety guidelines maintained by the <a href="https://www.iapmo.org/" class="authority-link" target="_blank" rel="noopener">International Association of Plumbing and Mechanical Officials (IAPMO)</a>.</p>
+
+                    <h3>Preventative Hydro-Acoustic Monitoring Strategies</h3>
+                    <p>Implementing routine hydro-acoustic checks across older Trojan Drive residential plumbing systems offers a proactive defense against major water damage. Detecting subtle acoustic frequency shifts before a pinhole leak expands into a major slab wash-out safeguards foundation stability, prevents subterranean soil erosion, and protects property values across La Mirada residential neighborhoods.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <div class="hud-line-divider"></div>
+
+    <!-- 6. CORE FEATURES & KEY VALUE GRID -->
+    <section class="section-padding" id="features">
+        <div class="container">
+            <div style="margin-bottom: 50px;">
+                <div class="badge-hud">Acoustic Engineering Specs</div>
+                <h2 style="font-size: 2.5rem;">6 Hydro-Acoustic <span>Diagnostic Capabilities</span></h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 01</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Piezoelectric Ground Sensors</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Ultra-sensitive ceramic sensors that capture micro-vibrational energy through thick concrete slabs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 02</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">DSP Bandpass Filtering</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Digital signal processors that isolate water leak frequencies while canceling out ambient street traffic noise.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 03</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Dual-Probe Sound Correlation</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Calculates sound travel times between two pipe valves to determine exact leak coordinates along long runs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 04</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Resonance Frequency Amplifiers</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Boosts subtle pinhole leak hiss frequencies up to 100,000x for clear audio identification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 05</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Subfloor Hydro-Trace Mapping</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Generates visual sound intensity heatmaps to pinpoint subterranean breach locations before drilling.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-tag">SPECIFICATION // 06</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 12px;">Pressure-Wave Velocity Meters</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Measures internal line pressure fluctuations to verify complete system tightness post-repair.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. VISUAL BREAKDOWN / STEP-BY-STEP GUIDE -->
+    <section class="section-padding" id="workflow" style="background: rgba(15, 19, 28, 0.6);">
+        <div class="container">
+            <div style="margin-bottom: 50px; text-align: center;">
+                <div class="badge-hud">Acoustic Diagnostic Workflow</div>
+                <h2 style="font-size: 2.5rem;">4 Stages of <span>Non-Invasive Leak Tracing</span></h2>
+            </div>
+
+            <div class="workflow-grid">
+                <div class="workflow-step active">
+                    <div class="mono-code" style="color: var(--acid-lime); font-size: 0.75rem; margin-bottom: 10px;">PHASE 01</div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 10px;">System Pressure Audit</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Install master pressure gauges on plumbing valves to detect pressure decay in subfloor lines.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="mono-code" style="color: var(--acid-lime); font-size: 0.75rem; margin-bottom: 10px;">PHASE 02</div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Surface Grid Scanning</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Walk high-gain piezoelectric ground microphones across floor tile, carpet, or concrete surfaces.</p>
+                </div>
+                <div class="workflow-step active">
+                    <div class="mono-code" style="color: var(--acid-lime); font-size: 0.75rem; margin-bottom: 10px;">PHASE 03</div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Frequency Isolation</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Adjust DSP filters to isolate the peak leak sound signature (200Hz - 800Hz) from ambient noise.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="mono-code" style="color: var(--acid-lime); font-size: 0.75rem; margin-bottom: 10px;">PHASE 04</div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 10px;">Pinpoint Mark &amp; Repair</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">Mark exact breach coordinates on the floor surface, enabling targeted single-tile repair access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. COMPREHENSIVE COMPARISON TABLE -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="margin-bottom: 40px;">
+                <div class="badge-hud">Method Comparison Matrix</div>
+                <h2 style="font-size: 2.5rem;">Hydro-Acoustic Testing vs <span>Traditional Demolition</span></h2>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Diagnostic Metric</th>
+                            <th>Traditional Exploratory Digging</th>
+                            <th>Precision Hydro-Acoustic Tracing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Location Accuracy</strong></td>
+                            <td>Imprecise (Requires multi-ft trenches)</td>
+                            <td><span style="color: var(--acid-lime); font-weight: 700;">Exact (Within 1-2 Inches)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flooring Damage</strong></td>
+                            <td>Extensive jackhammering of tiles/wood</td>
+                            <td><span style="color: var(--acid-lime); font-weight: 700;">Zero Flooring Damage During Scan</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Noise &amp; Dust Level</strong></td>
+                            <td>High demolition dust &amp; loud jackhammers</td>
+                            <td><span style="color: var(--acid-lime); font-weight: 700;">Silent, Clean Electronic Scanning</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Repair Downtime</strong></td>
+                            <td>3 to 7 Days of Construction disruption</td>
+                            <td><span style="color: var(--acid-lime); font-weight: 700;">Same-Day Location &amp; Spot Repair</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. INTERACTIVE FAQ SECTION -->
+    <section class="section-padding" id="faq" style="background: rgba(15, 19, 28, 0.4);">
+        <div class="container">
+            <div style="margin-bottom: 50px; text-align: center;">
+                <div class="badge-hud">Technical Knowledgebase</div>
+                <h2 style="font-size: 2.5rem;">Frequently Asked <span>Questions</span></h2>
+            </div>
+
+            <div class="faq-accordion-container">
+                <div class="faq-card">
+                    <button class="faq-btn">
+                        <span>How does acoustic leak detection work through thick concrete slabs?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+                    <div class="faq-body">
+                        <p>High-pressure water escaping a pipe creates intense vibrations that travel through concrete. Piezoelectric ground microphones amplify these specific sound waves while filtering out room noise, allowing technicians to hear leaks through feet of concrete.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-btn">
+                        <span>Can acoustic equipment detect small pinhole leaks?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+                    <div class="faq-body">
+                        <p>Yes. In fact, smaller pinhole leaks under high water pressure often produce higher frequency acoustic signals (500Hz+) than large breaks, making them very distinct to digital frequency amplifiers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-btn">
+                        <span>Will acoustic scanning damage my existing hardwood or tile floors?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+                    <div class="faq-body">
+                        <p>Not at all. Acoustic leak detection is 100% non-invasive. Contact sensors sit flat on finished floor surfaces without drilling or scratching.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-btn">
+                        <span>How long does a hydro-acoustic leak audit take on Trojan Drive properties?</span>
+                        <span class="faq-symbol">+</span>
+                    </button>
+                    <div class="faq-body">
+                        <p>Most residential acoustic floor scans take between 60 to 90 minutes to thoroughly map subfloor pipe paths and pinpoint the exact leak breach point.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. EXPERT TIPS CARDS -->
+    <section class="section-padding">
+        <div class="container">
+            <div style="margin-bottom: 40px;">
+                <div class="badge-hud">Engineering Best Practices</div>
+                <h2 style="font-size: 2.5rem;">3 Signs You Need <span>Subfloor Acoustic Tracing</span></h2>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-num">TIP // 01</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--acid-lime);">Unexplained Running Water Sounds</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Hearing a faint hiss or rushing water sound near walls or under floors when all faucets are off indicates an active pressure leak.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-num">TIP // 02</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--acid-lime);">Warm Spots on Floor Tiles</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Hot water slab leaks transfer heat directly into ceramic tiles or slab concrete, creating noticeable warm floor patches.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-num">TIP // 03</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--acid-lime);">Sudden Water Bill Spikes</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">A sudden jump in municipal water usage without lifestyle changes strongly points to a hidden subterranean main break.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. USER FEEDBACK SHOWCASE -->
+    <section class="section-padding" style="background: rgba(15, 19, 28, 0.3);">
+        <div class="container">
+            <div style="margin-bottom: 40px;">
+                <div class="badge-hud">Community Feedback</div>
+                <h2 style="font-size: 2.5rem;">Case Studies &amp; <span>Homeowner Reviews</span></h2>
+            </div>
+
+            <div class="feedback-grid">
+                <div class="feedback-card">
+                    <p class="feedback-text">"I could hear water running beneath our Trojan Drive home's kitchen tile, but had no idea where. Acoustic scanning located the leak right under one single 12-inch tile."</p>
+                    <div class="feedback-author">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="La Mirada Resident">
+                        <div>
+                            <h4 style="font-size: 0.95rem; font-weight: 600;">Sarah Jenkins</h4>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Trojan Drive Homeowner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <p class="feedback-text">"Saved our custom hardwood floor from getting ripped up. The technician used a ground microphone and pinpointed the hot water line pinhole within 45 minutes."</p>
+                    <div class="feedback-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="La Mirada Resident">
+                        <div>
+                            <h4 style="font-size: 0.95rem; font-weight: 600;">Marcus Vance</h4>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">La Mirada Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <p class="feedback-text">"Non-invasive testing is an absolute game-changer. Clean, precise, and extremely accurate audio frequency mapping. Highly recommend."</p>
+                    <div class="feedback-author">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80" alt="La Mirada Resident">
+                        <div>
+                            <h4 style="font-size: 0.95rem; font-weight: 600;">Brenda Holloway</h4>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Trojan Drive Property Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. HIGHLIGHTED CALLOUT BANNER -->
+    <div class="container" style="margin-bottom: 100px;">
+        <div class="callout-banner-box">
+            <h2 style="font-size: 2.3rem; margin-bottom: 16px;">Suspect a Hidden Slab Leak on Trojan Drive?</h2>
+            <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 28px auto; font-size: 1rem;">Book a specialized non-invasive hydro-acoustic survey to locate subterranean pipe breaks with zero floor demolition.</p>
+            <a href="#contact" class="btn-lime">Schedule Acoustic Scan</a>
+        </div>
+    </div>
+
+    <!-- 13. CONSULTATION FORM SECTION -->
+    <section class="section-padding" id="contact" style="background: rgba(15, 19, 28, 0.5);">
+        <div class="container">
+            <div class="contact-layout">
+                <div>
+                    <div class="badge-hud">Acoustic Service Intake</div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 16px;">Request Subfloor <span>Hydro-Acoustic Audit</span></h2>
+                    <p style="color: var(--text-muted); margin-bottom: 28px;">Connect directly with certified hydro-acoustic technicians serving Trojan Drive and surrounding La Mirada residential sectors.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <strong class="mono-code" style="color: var(--acid-lime); display: block; font-size: 0.8rem;">TECHNICAL DESK:</strong>
+                        <span style="color: var(--text-muted);">journal@trojandrivelamiradajournal.com</span>
+                    </div>
+                    <div>
+                        <strong class="mono-code" style="color: var(--acid-lime); display: block; font-size: 0.8rem;">SERVICE AREA:</strong>
+                        <span style="color: var(--text-muted);">Trojan Drive Corridor &amp; Greater La Mirada 90638</span>
+                    </div>
+                </div>
+
+                <div class="form-box">
+                    <form onsubmit="event.preventDefault(); alert('Acoustic audit request received. A technician will review your frequency inquiry.');">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 20px;">Property Intake Portal</h3>
+                        <div class="input-wrap">
+                            <label for="cname">Property Owner Name</label>
+                            <input type="text" id="cname" class="input-ctrl" placeholder="e.g. Eleanor Vance" required>
+                        </div>
+                        <div class="input-wrap">
+                            <label for="cemail">Email Address</label>
+                            <input type="email" id="cemail" class="input-ctrl" placeholder="e.g. eleanor@example.com" required>
+                        </div>
+                        <div class="input-wrap">
+                            <label for="ctype">Symptom Type</label>
+                            <select id="ctype" class="input-ctrl">
+                                <option>Acoustic Hissing Sound Under Floor</option>
+                                <option>Unexplained Warm Floor Tile Area</option>
+                                <option>Unusually High Water Bill Spike</option>
+                                <option>Preventative Infrastructure Scan</option>
+                            </select>
+                        </div>
+                        <div class="input-wrap">
+                            <label for="cdesc">Property Observations</label>
+                            <textarea id="cdesc" class="input-ctrl" style="min-height: 80px; resize: vertical;" placeholder="Describe water meter activity or floor sounds..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-lime" style="width: 100%; justify-content: center;">Submit Acoustic Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. COMPREHENSIVE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 16px;">TROJAN DRIVE JOURNAL</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.65;">A technical digital publication reporting on hydro-acoustic infrastructure engineering, subterranean sound propagation, and non-destructive plumbing diagnostics across La Mirada, CA.</p>
+                </div>
+                <div>
+                    <div class="footer-heading">NAVIGATION</div>
+                    <ul class="footer-links">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#article">Research Study</a></li>
+                        <li><a href="#features">Acoustic Specs</a></li>
+                        <li><a href="#workflow">Workflow</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">TECHNICAL TOPICS</div>
+                    <ul class="footer-links">
+                        <li><a href="#article">DSP Frequency Filtering</a></li>
+                        <li><a href="#features">Piezoelectric Sensors</a></li>
+                        <li><a href="#workflow">Slab-on-Grade Acoustics</a></li>
+                        <li><a href="#faq">Zero-Demolition Testing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-heading">LOCAL SECTORS</div>
+                    <ul class="footer-links">
+                        <li><a href="#">Trojan Drive West</a></li>
+                        <li><a href="#">La Mirada Blvd Corridor</a></li>
+                        <li><a href="#">Imperial Highway Basin</a></li>
+                        <li><a href="#">Rosecrans Sector 90638</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Trojan Drive La Mirada Journal. All Rights Reserved. Diagnostic Index #90638-ACOUSTIC.</div>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" style="color: var(--text-muted);">Editorial Policy</a>
+                    <a href="#" style="color: var(--text-muted);">Privacy Architecture</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ACCORDION & HEADER SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion Toggle
+            const faqCards = document.querySelectorAll('.faq-card');
+            faqCards.forEach(card => {
+                const btn = card.querySelector('.faq-btn');
+                btn.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('open');
+                    faqCards.forEach(c => c.classList.remove('open'));
+                    if (!isOpen) {
+                        card.classList.add('open');
+                    }
+                });
+            });
+
+            // Sticky Header Smooth Hide/Show
+            let lastScroll = window.pageYOffset;
+            const header = document.querySelector('.site-header');
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
+</body>
+</html>
